@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Dr. Bike Sydney — Premium mobile bicycle repair. Your door, our workshop.">
+<meta name="theme-color" content="#1848C8">
+<title>Dr. Bike Sydney</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="index_files/css2.css" rel="stylesheet">
+<style>
+:root{
+  --blue:#1848C8;--blue2:#1138A8;--blue-lt:#EEF3FC;
+  --navy:#0D1F3C;--navy2:#162947;
+  --white:#ffffff;--off:#F7F8FA;--mgray:#6B7280;
+  --border:#E5E7EB;--shadow:0 1px 3px rgba(0,0,0,0.08),0 4px 16px rgba(0,0,0,0.06);
+  --shadow-lg:0 4px 6px rgba(0,0,0,0.05),0 10px 40px rgba(0,0,0,0.1);
+  --r:12px;--sans:'Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--white);color:var(--navy);-webkit-font-smoothing:antialiased}
+.page{display:none}.page.active{display:block}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 32px}
+.nav-brand{display:flex;align-items:center;gap:11px;cursor:pointer}
+.nav-logo{width:38px;height:38px;background:var(--blue);display:flex;align-items:center;justify-content:center;clip-path:polygon(25% 5%,75% 5%,100% 50%,75% 95%,25% 95%,0% 50%);flex-shrink:0}
+.nav-logo svg{width:24px;height:24px}
+.nav-name{font-size:17px;font-weight:700;color:var(--navy)}
+.nav-tagline{font-size:10px;color:var(--mgray);letter-spacing:0.05em;text-transform:uppercase;margin-top:1px}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nl{padding:6px 14px;font-size:13px;color:var(--mgray);cursor:pointer;border:none;background:transparent;font-family:var(--sans);transition:color .15s;border-radius:6px}
+.nl:hover,.nl.on{color:var(--navy);background:#F3F4F6}
+.nl.cta{background:var(--blue);color:#fff;padding:9px 20px;margin-left:8px;font-size:13px;font-weight:500;transition:background .15s;border:none;cursor:pointer;font-family:var(--sans);border-radius:8px}
+.nl.cta:hover{background:var(--blue2)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{width:20px;height:1.5px;background:var(--navy);display:block;border-radius:2px}
+
+/* HERO */
+.hero{background:var(--white);padding:88px 32px 96px;text-align:center;border-bottom:1px solid var(--border)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;color:var(--blue);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:24px}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:28px;height:1.5px;background:var(--blue);border-radius:2px}
+.hero h1{font-size:clamp(42px,6vw,68px);font-weight:800;color:var(--navy);line-height:1.1;margin-bottom:12px;max-width:620px;margin-left:auto;margin-right:auto;letter-spacing:-0.03em}
+.hero h1 .accent{color:var(--blue)}
+.hero-sub{font-size:18px;font-weight:300;color:var(--mgray);margin-bottom:16px}
+.hero p{font-size:15px;color:var(--mgray);max-width:420px;margin:0 auto 40px;line-height:1.7;font-weight:300}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--blue);color:#fff;border:none;padding:14px 32px;font-family:var(--sans);font-size:14px;font-weight:600;cursor:pointer;transition:all .15s;border-radius:9px;box-shadow:0 4px 14px rgba(24,72,200,0.35)}
+.btn-primary:hover{background:var(--blue2);box-shadow:0 4px 18px rgba(24,72,200,0.45);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--navy);border:1.5px solid var(--border);padding:13px 32px;font-family:var(--sans);font-size:14px;font-weight:500;cursor:pointer;transition:all .15s;border-radius:9px}
+.btn-ghost:hover{border-color:var(--navy);background:#F9FAFB}
+.hero-stats{display:flex;justify-content:center;gap:0;margin-top:60px;padding-top:48px;border-top:1px solid var(--border);flex-wrap:wrap}
+.hs{padding:0 40px;text-align:center;border-right:1px solid var(--border)}
+.hs:last-child{border-right:none}
+.hs-n{font-size:30px;font-weight:700;color:var(--navy);line-height:1;letter-spacing:-0.02em}
+.hs-l{font-size:10px;color:var(--mgray);margin-top:6px;letter-spacing:0.08em;text-transform:uppercase;font-weight:500}
+
+/* WHY */
+.why{padding:88px 32px;border-bottom:1px solid var(--border);background:var(--off)}
+.why-inner{max-width:860px;margin:0 auto}
+.section-eyebrow{font-size:11px;font-weight:600;color:var(--blue);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.section-eyebrow::before{content:'';width:18px;height:1.5px;background:var(--blue);border-radius:2px}
+.section-h2{font-size:clamp(26px,4vw,40px);font-weight:700;color:var(--navy);margin-bottom:14px;line-height:1.2;letter-spacing:-0.02em}
+.section-p{font-size:15px;color:var(--mgray);line-height:1.7;font-weight:300;max-width:520px;margin-bottom:44px}
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.feat{background:var(--white);border-radius:var(--r);padding:28px;box-shadow:var(--shadow);border:1px solid var(--border)}
+.feat-num{font-size:12px;font-weight:700;color:var(--blue);margin-bottom:14px;letter-spacing:0.06em}
+.feat-title{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:8px}
+.feat-desc{font-size:13px;color:var(--mgray);line-height:1.6;font-weight:300}
+
+/* PLAN PREVIEW */
+.plans-preview-section{padding:88px 32px;border-bottom:1px solid var(--border)}
+.plans-preview-inner{max-width:860px;margin:0 auto;text-align:center}
+.plan-pills{display:flex;justify-content:center;gap:16px;margin-top:40px;flex-wrap:wrap}
+.plan-pill{border:1.5px solid var(--border);border-radius:var(--r);padding:22px 24px;text-align:center;min-width:170px;cursor:pointer;transition:all .15s;background:var(--white);position:relative;box-shadow:var(--shadow)}
+.plan-pill:hover{border-color:var(--blue);transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.plan-pill.hot{background:var(--navy);border-color:var(--navy)}
+.plan-pill-label{font-size:9px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--mgray);margin-bottom:8px}
+.plan-pill.hot .plan-pill-label{color:rgba(255,255,255,0.5)}
+.plan-pill-price{font-size:26px;font-weight:700;color:var(--navy);line-height:1}
+.plan-pill.hot .plan-pill-price{color:#fff}
+.plan-pill-sub{font-size:11px;color:var(--mgray);margin-top:6px}
+.plan-pill.hot .plan-pill-sub{color:rgba(255,255,255,0.5)}
+.pop-ribbon{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--blue);color:#fff;font-size:9px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:3px 12px;border-radius:20px;white-space:nowrap}
+
+/* LOGIN */
+.login-wrap{min-height:80vh;display:flex;align-items:center;justify-content:center;padding:40px 20px;background:var(--off)}
+.login-card{background:var(--white);border-radius:16px;padding:40px;width:100%;max-width:380px;box-shadow:var(--shadow-lg);border:1px solid var(--border)}
+.login-logo{display:flex;align-items:center;gap:10px;margin-bottom:24px}
+.login-badge{width:38px;height:38px;background:var(--blue);display:flex;align-items:center;justify-content:center;clip-path:polygon(25% 5%,75% 5%,100% 50%,75% 95%,25% 95%,0% 50%)}
+.login-badge svg{width:22px;height:22px}
+.login-brand-name{font-size:18px;font-weight:700;color:var(--navy)}
+.login-title{font-size:24px;font-weight:700;color:var(--navy);margin-bottom:6px;letter-spacing:-0.01em}
+.login-sub{font-size:13px;color:var(--mgray);margin-bottom:28px;line-height:1.6;font-weight:300}
+.google-btn{width:100%;padding:12px;border:1.5px solid var(--border);border-radius:9px;background:var(--white);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;font-family:var(--sans);font-size:13px;font-weight:500;color:var(--navy);margin-bottom:16px;transition:all .15s}
+.google-btn:hover{border-color:var(--blue);background:var(--blue-lt)}
+.or-row{display:flex;align-items:center;gap:12px;margin:16px 0;font-size:11px;color:var(--mgray)}
+.or-line{flex:1;height:1px;background:var(--border)}
+.form-inp{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;color:var(--navy);background:var(--white);margin-bottom:10px;font-family:var(--sans);font-weight:300;outline:none;transition:border-color .15s}
+.form-inp:focus{border-color:var(--blue)}
+.submit-btn{width:100%;padding:13px;background:var(--blue);color:#fff;border:none;border-radius:9px;font-family:var(--sans);font-size:14px;font-weight:600;cursor:pointer;transition:all .15s;box-shadow:0 4px 14px rgba(24,72,200,0.3)}
+.submit-btn:hover{background:var(--blue2)}
+.login-foot{font-size:12px;color:var(--mgray);margin-top:16px;text-align:center}
+.login-foot span{color:var(--blue);cursor:pointer;font-weight:500}
+
+/* DASHBOARD */
+.dash-hdr{background:var(--white);padding:20px 28px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
+.dash-av{width:40px;height:40px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#fff}
+.dash-name{font-size:15px;font-weight:600;color:var(--navy)}
+.dash-plan-sub{font-size:11px;color:var(--mgray);margin-top:1px}
+.plan-badge{display:inline-flex;align-items:center;gap:5px;background:var(--blue-lt);color:var(--blue);font-size:10px;font-weight:600;padding:5px 12px;border-radius:20px;border:1px solid rgba(24,72,200,0.2)}
+.dash-body{padding:20px;background:var(--off);display:flex;flex-direction:column;gap:14px;min-height:60vh}
+.next-card{background:var(--white);border-radius:var(--r);border:1px solid var(--border);border-left:4px solid var(--blue);padding:16px 20px;display:flex;align-items:center;gap:16px;box-shadow:var(--shadow)}
+.nc-date{background:var(--blue);color:#fff;border-radius:9px;padding:8px 14px;text-align:center;flex-shrink:0;min-width:54px}
+.nc-day{font-size:22px;font-weight:700;line-height:1}
+.nc-mo{font-size:10px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;margin-top:2px}
+.nc-title{font-size:15px;font-weight:600;color:var(--navy)}
+.nc-sub{font-size:12px;color:var(--mgray);margin-top:3px;font-weight:300}
+.conf-tag{margin-left:auto;background:#D1FAE5;color:#065F46;font-size:10px;font-weight:600;padding:4px 10px;border-radius:20px;white-space:nowrap}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.kpi{background:var(--white);border-radius:var(--r);padding:16px;box-shadow:var(--shadow);border:1px solid var(--border)}
+.kpi-n{font-size:22px;font-weight:700;color:var(--navy);letter-spacing:-0.01em}
+.kpi-n.blue{color:var(--blue)}
+.kpi-l{font-size:10px;color:var(--mgray);margin-top:4px;letter-spacing:0.04em;text-transform:uppercase;font-weight:500}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.card{background:var(--white);border-radius:var(--r);border:1px solid var(--border);padding:18px;box-shadow:var(--shadow)}
+.ct{font-size:10px;font-weight:600;color:var(--mgray);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.ct::before{content:'';width:14px;height:2px;background:var(--blue);border-radius:2px}
+.hist-row{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #F3F4F6;font-size:13px}
+.hist-row:last-child{border-bottom:none}
+.hist-dot{width:6px;height:6px;border-radius:50%;background:var(--blue);flex-shrink:0}
+.hist-svc{flex:1;color:var(--navy);font-weight:400}
+.hist-date{font-size:11px;color:var(--mgray)}
+.hist-price{font-weight:600;color:var(--navy);margin-left:8px}
+.see-all{font-size:12px;color:var(--blue);margin-top:10px;cursor:pointer;font-weight:500}
+.bike-item{border-bottom:1px solid #F3F4F6;padding:10px 0}
+.bike-item:last-child{border-bottom:none}
+.bike-name{font-size:13px;font-weight:500;color:var(--navy)}
+.bike-sub{font-size:11px;color:var(--mgray);margin-top:2px;font-weight:300}
+.dash-acts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.da{padding:12px;font-size:13px;font-weight:500;cursor:pointer;border:1.5px solid var(--border);background:var(--white);color:var(--navy);font-family:var(--sans);transition:all .15s;border-radius:9px}
+.da:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-lt)}
+.da.primary{background:var(--navy);color:#fff;border-color:var(--navy)}
+.da.primary:hover{background:var(--navy2);border-color:var(--navy2)}
+.da.blue{background:var(--blue);color:#fff;border-color:var(--blue)}
+.da.blue:hover{background:var(--blue2)}
+
+/* SERVICES */
+.svcs-hdr{background:var(--white);padding:40px 32px 32px;border-bottom:1px solid var(--border)}
+.svcs-hdr-inner{max-width:860px;margin:0 auto}
+.svcs-hdr h2{font-size:32px;font-weight:700;color:var(--navy);margin-bottom:6px;letter-spacing:-0.02em}
+.svcs-body{padding:24px;background:var(--off)}
+.svcs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.svc-card{background:var(--white);border-radius:var(--r);border:1.5px solid var(--border);padding:16px 18px;cursor:pointer;transition:all .15s;box-shadow:var(--shadow)}
+.svc-card:hover{border-color:var(--blue);transform:translateY(-1px);box-shadow:var(--shadow-lg)}
+.svc-card.open{border-color:var(--blue);background:var(--blue-lt)}
+.svc-name{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:2px}
+.svc-dur{font-size:11px;color:var(--mgray);margin-bottom:8px;font-weight:300}
+.svc-pr{display:flex;align-items:center;justify-content:space-between}
+.svc-price{font-size:20px;font-weight:700;color:var(--blue)}
+.svc-desc{font-size:12px;color:var(--mgray);margin:10px 0;line-height:1.6;padding-top:10px;border-top:1px solid rgba(24,72,200,0.15);font-weight:300}
+.svc-acts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.sa{padding:9px;font-size:12px;font-weight:600;cursor:pointer;border:none;font-family:var(--sans);transition:all .15s;border-radius:7px}
+.sa.book{background:var(--navy);color:#fff}
+.sa.book:hover{background:var(--navy2)}
+.sa.pay{background:var(--blue);color:#fff}
+.sa.pay:hover{background:var(--blue2)}
+
+/* BOOKING */
+.book-hdr{background:var(--white);padding:40px 32px 32px;border-bottom:1px solid var(--border)}
+.book-hdr-inner{max-width:860px;margin:0 auto}
+.book-hdr h2{font-size:32px;font-weight:700;color:var(--navy);margin-bottom:6px;letter-spacing:-0.02em}
+.book-body{padding:24px;background:var(--off)}
+.book-inner{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.steps-row{display:flex;background:var(--white);border-radius:var(--r);border:1px solid var(--border);overflow:hidden;box-shadow:var(--shadow)}
+.step-item{flex:1;text-align:center;padding:14px 6px;font-size:11px;color:var(--mgray);border-bottom:2px solid transparent;transition:all .15s;letter-spacing:0.04em;text-transform:uppercase;font-weight:500}
+.step-item.done{color:var(--blue);border-color:var(--blue)}
+.step-item.active{color:var(--navy);font-weight:600;border-color:var(--navy)}
+.cal-g{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.cdow{font-size:10px;color:var(--mgray);text-align:center;padding:5px 0;letter-spacing:0.04em;text-transform:uppercase;font-weight:500}
+.cday{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:12px;cursor:pointer;color:var(--navy);transition:all .13s;border-radius:7px;font-weight:400}
+.cday:hover:not(.ot):not(.pt){background:var(--blue-lt);color:var(--blue)}
+.cday.ot,.cday.pt{color:#D1D5DB;cursor:default}
+.cday.sel{background:var(--blue);color:#fff;font-weight:600}
+.cday.has{position:relative}.cday.has::after{content:'';width:4px;height:4px;background:var(--blue);border-radius:50%;position:absolute;bottom:3px;left:50%;transform:translateX(-50%)}
+.tg{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.ts{padding:10px;font-size:12px;text-align:center;cursor:pointer;border:1.5px solid var(--border);background:var(--white);color:var(--navy);font-family:var(--sans);transition:all .13s;border-radius:8px;font-weight:400}
+.ts:hover:not(.bk){border-color:var(--blue);color:var(--blue);background:var(--blue-lt)}
+.ts.sel{background:var(--blue);color:#fff;border-color:var(--blue);font-weight:600}
+.ts.bk{background:#F9FAFB;color:#D1D5DB;cursor:default}
+.conf-row{display:flex;justify-content:space-between;font-size:14px;padding:9px 0;border-bottom:1px solid #F3F4F6}
+.conf-row:last-of-type{border-bottom:none}
+.conf-label{color:var(--mgray);font-weight:300}
+.conf-total{display:flex;justify-content:space-between;margin-top:16px;padding-top:16px;border-top:2px solid var(--border)}
+.conf-total-label{font-weight:600;color:var(--navy);font-size:14px}
+.conf-total-price{font-size:24px;font-weight:700;color:var(--blue)}
+.conf-btn{width:100%;padding:14px;background:var(--blue);color:#fff;border:none;border-radius:10px;font-family:var(--sans);font-size:14px;font-weight:600;cursor:pointer;margin-top:18px;transition:all .15s;box-shadow:0 4px 14px rgba(24,72,200,0.3)}
+.conf-btn:hover{background:var(--blue2)}
+.success-box{background:var(--white);border-radius:var(--r);border:1px solid var(--border);padding:32px;text-align:center;box-shadow:var(--shadow-lg)}
+.success-title{font-size:24px;font-weight:700;color:var(--navy);margin-bottom:8px;letter-spacing:-0.01em}
+.success-sub{font-size:13px;color:var(--mgray);margin-bottom:20px;font-weight:300}
+
+/* ── MEMBERSHIP — matches the screenshot style ── */
+.plans-hdr{background:var(--off);padding:64px 32px 40px;border-bottom:1px solid var(--border);text-align:center}
+.plans-hdr h2{font-size:36px;font-weight:800;color:var(--navy);margin-bottom:10px;letter-spacing:-0.02em}
+.plans-hdr p{font-size:15px;color:var(--mgray);max-width:460px;margin:0 auto 24px;line-height:1.7;font-weight:300}
+.bill-tgl{display:inline-flex;background:#F3F4F6;border-radius:10px;padding:4px}
+.bt{padding:9px 24px;font-size:13px;cursor:pointer;color:var(--mgray);border:none;background:transparent;font-family:var(--sans);transition:all .13s;border-radius:7px;font-weight:500}
+.bt.on{background:var(--white);color:var(--navy);font-weight:600;box-shadow:0 1px 4px rgba(0,0,0,0.1)}
+.plans-body{padding:48px 24px;background:var(--off);display:flex;flex-direction:column;gap:40px}
+.plans3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:920px;margin:0 auto;align-items:start}
+.pl{background:var(--white);border-radius:16px;padding:28px;display:flex;flex-direction:column;border:1.5px solid var(--border);box-shadow:var(--shadow);position:relative}
+.pl.pop{border-color:var(--blue);box-shadow:0 4px 6px rgba(24,72,200,0.08),0 12px 40px rgba(24,72,200,0.15)}
+.pop-tag2{background:var(--blue);color:#fff;font-size:10px;font-weight:700;padding:6px 16px;margin-bottom:16px;letter-spacing:0.05em;text-transform:uppercase;display:inline-block;border-radius:20px}
+.pl-name{font-size:22px;font-weight:700;color:var(--navy);margin-bottom:4px;letter-spacing:-0.01em}
+.pl-who{font-size:13px;color:var(--mgray);margin-bottom:20px;font-weight:400}
+.pl-price{font-size:40px;font-weight:700;color:var(--navy);line-height:1;letter-spacing:-0.02em}
+.pl-price.vip{color:#B45309}
+.pl-mo{font-size:15px;font-weight:400;color:var(--mgray)}
+.pl-annual{font-size:12px;color:var(--mgray);margin-top:6px;margin-bottom:16px;font-weight:300}
+.bikes-tag{font-size:12px;font-weight:500;padding:6px 14px;margin-bottom:20px;display:inline-block;border-radius:8px;border:1.5px solid var(--border)}
+.feat-sl{font-size:11px;font-weight:700;color:var(--mgray);text-transform:uppercase;letter-spacing:0.08em;margin:16px 0 10px}
+.pf{display:flex;align-items:flex-start;gap:9px;margin-bottom:8px;font-size:13px;line-height:1.5;font-weight:400}
+.pfd{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.pf.no .pfd{background:#E5E7EB}
+.pf.no span{color:#9CA3AF}
+.pl-btn-wrap{margin-top:24px}
+.plb{width:100%;padding:14px;font-size:14px;font-weight:600;cursor:pointer;border:none;font-family:var(--sans);transition:all .15s;border-radius:10px;letter-spacing:0.01em}
+.plb:hover{opacity:.9;transform:translateY(-1px)}
+.plb-note{font-size:11px;color:var(--mgray);text-align:center;margin-top:10px;font-weight:300}
+
+/* pitch section */
+.pitch-wrap{max-width:920px;margin:0 auto;display:flex;flex-direction:column;gap:0;border-radius:var(--r);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow)}
+.pitch-intro-box{background:var(--navy);padding:28px 32px}
+.pitch-intro-box p{font-size:15px;color:rgba(255,255,255,0.8);line-height:1.75;font-weight:300}
+.pitch-intro-box strong{color:#fff;font-weight:600}
+.pc{background:var(--white);border-bottom:1px solid var(--border);padding:18px 24px;cursor:pointer;transition:background .13s}
+.pc:last-child{border-bottom:none}
+.pc:hover{background:#F9FAFB}
+.pc.open{background:var(--blue-lt)}
+.pc-head{display:flex;align-items:center;gap:14px}
+.pc-badge{padding:7px 16px;font-size:15px;font-weight:700;flex-shrink:0;min-width:80px;text-align:center;border-radius:9px;font-variant-numeric:tabular-nums}
+.pc-title{font-size:14px;font-weight:600;color:var(--navy)}
+.pc-sub{font-size:12px;color:var(--mgray);margin-top:2px;font-weight:300}
+.pc-arr{margin-left:auto;transition:transform .2s;flex-shrink:0;color:var(--mgray)}
+.pc.open .pc-arr{transform:rotate(180deg)}
+.pc-body{font-size:13px;color:var(--mgray);line-height:1.75;margin-top:14px;padding-top:14px;border-top:1px solid rgba(24,72,200,0.12);display:none;font-weight:300}
+.pc.open .pc-body{display:block}
+.hl{color:var(--blue);font-weight:600}
+
+/* val box */
+.val-box{max-width:920px;margin:0 auto;background:var(--white);border-radius:var(--r);border:1px solid var(--border);padding:24px;box-shadow:var(--shadow)}
+.vt{font-size:11px;font-weight:700;color:var(--mgray);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px}
+.vr{display:flex;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid #F3F4F6;font-size:13px}
+.vr:last-child{border-bottom:none}
+.vn{font-weight:700;color:var(--navy);width:76px;flex-shrink:0}
+.vp{color:var(--mgray);width:88px;flex-shrink:0;font-weight:300}
+.vg{color:var(--mgray);flex:1;font-size:12px;font-weight:300}
+.vs{font-weight:700;color:var(--blue);white-space:nowrap}
+.vnote{font-size:11px;color:var(--mgray);margin-top:12px;padding:12px;background:var(--off);border-radius:8px;font-weight:300;line-height:1.6}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(13,31,60,0.5);align-items:center;justify-content:center;padding:20px;z-index:200;backdrop-filter:blur(4px)}
+.modal-overlay.show{display:flex}
+.modal-box{background:var(--white);border-radius:16px;padding:28px;width:100%;max-width:380px;box-shadow:var(--shadow-lg)}
+.modal-title{font-size:22px;font-weight:700;color:var(--navy);margin-bottom:4px;letter-spacing:-0.01em}
+.modal-sub{font-size:13px;color:var(--mgray);margin-bottom:18px;font-weight:300}
+.pm-g{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.pmb{border:1.5px solid var(--border);border-radius:8px;padding:10px;text-align:center;cursor:pointer;font-size:12px;color:var(--mgray);font-family:var(--sans);background:var(--white);transition:all .13s;font-weight:400}
+.pmb.on{border-color:var(--blue);background:var(--blue-lt);color:var(--blue);font-weight:600}
+.modal-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.mb-cancel{padding:11px;border:1.5px solid var(--border);border-radius:9px;background:var(--white);font-size:13px;cursor:pointer;color:var(--mgray);font-family:var(--sans);font-weight:500}
+.mb-pay{padding:11px;border:none;border-radius:9px;background:var(--blue);color:#fff;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--sans);transition:background .15s}
+.mb-pay:hover{background:var(--blue2)}
+.pay-succ{background:#ECFDF5;border:1px solid #A7F3D0;border-radius:10px;padding:16px;text-align:center;display:none;margin-top:14px}
+
+/* FOOTER */
+footer{background:var(--navy);padding:36px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.fb{font-size:17px;font-weight:700;color:#fff;letter-spacing:-0.01em}
+.fb em{color:var(--blue);font-style:normal}
+.fs{font-size:10px;color:rgba(255,255,255,0.4);margin-top:3px;letter-spacing:0.06em;text-transform:uppercase}
+.flinks{display:flex;gap:20px}
+.fl{font-size:12px;color:rgba(255,255,255,0.5);cursor:pointer;transition:color .15s;font-weight:400}
+.fl:hover{color:#fff}
+
+@media(max-width:700px){
+.nav-links{display:none;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:var(--white);border-bottom:1px solid var(--border);padding:16px;gap:4px;z-index:99;box-shadow:0 8px 24px rgba(0,0,0,0.1)}
+.nav-links.open{display:flex}
+.hamburger{display:flex}
+.feats,.plans3{grid-template-columns:1fr}
+.kpis{grid-template-columns:repeat(2,1fr)}
+.two-col,.svcs-grid,.dash-acts{grid-template-columns:1fr}
+.plan-pills{flex-direction:column;align-items:center}
+.hero-stats{flex-direction:column;gap:0}
+.hs{border-right:none;border-bottom:1px solid var(--border);padding:20px 0;width:100%}
+.hs:last-child{border-bottom:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand" onclick="go('home')">
+    <div class="nav-logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round">
+        <circle cx="5.5" cy="17.5" r="3"></circle><circle cx="18.5" cy="17.5" r="3"></circle>
+        <path d="M5.5 17.5l3.5-9h5l3.5 6h-5l-2-3.5"></path>
+        <circle cx="12" cy="6" r="1.5" fill="#fff" stroke="none"></circle>
+      </svg>
+    </div>
+    <div>
+      <div class="nav-name">Dr. Bike</div>
+      <div class="nav-tagline">Sydney · Mobile repair</div>
+    </div>
+  </div>
+  <div class="nav-links" id="nav-links">
+    <button class="nl on" id="n-home" onclick="go('home')">Home</button>
+    <button class="nl" id="n-svcs" onclick="go('svcs')">Services</button>
+    <button class="nl" id="n-plans" onclick="go('plans')">Membership</button>
+    <button class="nl" id="n-book" onclick="go('book')">Book</button>
+    <button class="nl" id="n-dash" onclick="go('dash')">My account</button>
+    <button class="nl cta" onclick="go('login')">Sign in</button>
+  </div>
+  <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HOME -->
+<div id="page-home" class="page active">
+  <div class="hero">
+    <div class="hero-eyebrow">Mobile bicycle repair · Sydney</div>
+    <h1>Your bike, fixed at<br><span class="accent">your front door</span></h1>
+    <div class="hero-sub">Premium service. No workshop required.</div>
+    <p>Professional mechanics come to you anywhere in Sydney. Book online, track your history and manage your membership.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="go('login')">Sign in with Google</button>
+      <button class="btn-ghost" onclick="go('svcs')">View all services</button>
+    </div>
+    <div class="hero-stats">
+      <div class="hs"><div class="hs-n">50+</div><div class="hs-l">Services offered</div></div>
+      <div class="hs"><div class="hs-n">2</div><div class="hs-l">Vans across Sydney</div></div>
+      <div class="hs"><div class="hs-n">$25</div><div class="hs-l">From per service</div></div>
+      <div class="hs"><div class="hs-n">$57</div><div class="hs-l">Membership / mo</div></div>
+    </div>
+  </div>
+  <div class="why">
+    <div class="why-inner">
+      <div class="section-eyebrow">Why Dr. Bike</div>
+      <div class="section-h2">Everything your bike needs,<br>at your doorstep</div>
+      <p class="section-p">No workshop trips, no loading the car, no waiting days. We bring a fully equipped mobile workshop to you, Mon–Sat.</p>
+      <div class="feats">
+        <div class="feat"><div class="feat-num">01</div><div class="feat-title">Same-day availability</div><div class="feat-desc">Book this morning and we are at your door by afternoon. Morning and afternoon slots available across Sydney, six days a week.</div></div>
+        <div class="feat"><div class="feat-num">02</div><div class="feat-title">Qualified mechanics</div><div class="feat-desc">Road, MTB and e-bikes serviced with professional-grade tools. Experienced hands on every job, every time.</div></div>
+        <div class="feat"><div class="feat-num">03</div><div class="feat-title">Transparent pricing</div><div class="feat-desc">Fixed prices, no hidden charges. Membership clients save 8–18% on every service and receive priority scheduling.</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="plans-preview-section">
+    <div class="plans-preview-inner">
+      <div class="section-eyebrow" style="justify-content:center">Membership</div>
+      <div class="section-h2" style="text-align:center;letter-spacing:-0.02em">Save more. Ride more.</div>
+      <p class="section-p" style="margin:0 auto 0;text-align:center">From $57 per month — priority booking, discounted services and free Tune-Ups included.</p>
+      <div class="plan-pills">
+        <div class="plan-pill" onclick="go('plans')"><div class="plan-pill-label">Basic</div><div class="plan-pill-price">$57<span style="font-size:13px;font-weight:300;color:var(--mgray)">/mo</span></div><div class="plan-pill-sub">1 bike · 8% off</div></div>
+        <div class="plan-pill hot" onclick="go('plans')"><div class="pop-ribbon">Most popular</div><div class="plan-pill-label">Standard</div><div class="plan-pill-price">$97<span style="font-size:13px;font-weight:300;color:rgba(255,255,255,0.5)">/mo</span></div><div class="plan-pill-sub">1 bike · 12% off</div></div>
+        <div class="plan-pill" onclick="go('plans')" style="border-color:#D97706"><div class="plan-pill-price" style="color:#B45309">$147<span style="font-size:13px;font-weight:300;color:var(--mgray)">/mo</span></div><div class="plan-pill-label" style="color:#B45309">VIP · 3 bikes</div></div>
+      </div>
+      <div style="margin-top:28px;text-align:center"><button class="btn-primary" onclick="go('plans')">See full membership details</button></div>
+    </div>
+  </div>
+  <footer>
+    <div><div class="fb">Dr. <em>Bike</em> · Sydney</div><div class="fs">drbike.com.au · Mobile bicycle repair</div></div>
+    <div class="flinks"><span class="fl" onclick="go('svcs')">Services</span><span class="fl" onclick="go('plans')">Membership</span><span class="fl" onclick="go('book')">Book</span><span class="fl" onclick="go('login')">Sign in</span></div>
+  </footer>
+</div>
+
+<!-- LOGIN -->
+<div id="page-login" class="page">
+  <div class="login-wrap">
+    <div class="login-card">
+      <div class="login-logo">
+        <div class="login-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><circle cx="5.5" cy="17.5" r="3"></circle><circle cx="18.5" cy="17.5" r="3"></circle><path d="M5.5 17.5l3.5-9h5l3.5 6h-5l-2-3.5"></path><circle cx="12" cy="6" r="1.5" fill="#fff" stroke="none"></circle></svg></div>
+        <div class="login-brand-name">Dr. Bike</div>
+      </div>
+      <div class="login-title">Welcome back</div>
+      <div class="login-sub">Sign in to manage bookings, view your service history and access your membership.</div>
+      <button class="google-btn" onclick="go('dash')">
+        <svg width="17" height="17" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"></path><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg>
+        Continue with Google
+      </button>
+      <div class="or-row"><div class="or-line"></div>or<div class="or-line"></div></div>
+      <input class="form-inp" type="email" placeholder="Email address">
+      <input class="form-inp" type="password" placeholder="Password" style="margin-bottom:16px">
+      <button class="submit-btn" onclick="go('dash')">Sign in</button>
+      <div class="login-foot">No account? <span onclick="go('dash')">Create one free</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="page-dash" class="page">
+  <div class="dash-hdr">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div class="dash-av">SM</div>
+      <div><div class="dash-name">Good morning, Sarah</div><div class="dash-plan-sub">Standard member · renews 1 May 2026</div></div>
+    </div>
+    <div class="plan-badge">★ Standard · $97/mo</div>
+  </div>
+  <div class="dash-body">
+    <div class="next-card">
+      <div class="nc-date"><div class="nc-day">28</div><div class="nc-mo">Apr</div></div>
+      <div style="flex:1"><div class="nc-title">Standard Service · 10:00 am</div><div class="nc-sub">Mechanic 1 · Paddington · est. 90 min</div></div>
+      <div class="conf-tag">✓ Confirmed</div>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><div class="kpi-n">7</div><div class="kpi-l">Total services</div></div>
+      <div class="kpi"><div class="kpi-n blue">$863</div><div class="kpi-l">Total spent</div></div>
+      <div class="kpi"><div class="kpi-n">$123</div><div class="kpi-l">Avg. per visit</div></div>
+      <div class="kpi"><div class="kpi-n">12%</div><div class="kpi-l">My discount</div></div>
+    </div>
+    <div class="two-col">
+      <div class="card">
+        <div class="ct">Service history</div>
+        <div class="hist-row"><div class="hist-dot"></div><span class="hist-svc">Standard Service</span><span class="hist-date">26 Apr</span><span class="hist-price">$149</span></div>
+        <div class="hist-row"><div class="hist-dot"></div><span class="hist-svc">Ultimate Overhaul</span><span class="hist-date">12 Feb</span><span class="hist-price">$369</span></div>
+        <div class="hist-row"><div class="hist-dot"></div><span class="hist-svc">Tune-Up</span><span class="hist-date">3 Nov</span><span class="hist-price">$109</span></div>
+        <div class="hist-row"><div class="hist-dot"></div><span class="hist-svc">Brake Bleed</span><span class="hist-date">18 Aug</span><span class="hist-price">$120</span></div>
+        <div class="see-all">View all 7 visits →</div>
+      </div>
+      <div class="card">
+        <div class="ct">My bikes</div>
+        <div class="bike-item"><div class="bike-name">Specialized Tarmac SL6</div><div class="bike-sub">Road · 54cm · Last serviced 26 Apr</div></div>
+        <div class="bike-item"><div class="bike-name">Trek FX 3</div><div class="bike-sub">Commuter · M · Last serviced Nov 2025</div></div>
+        <button style="width:100%;padding:10px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;background:var(--white);cursor:pointer;color:var(--navy);font-family:var(--sans);margin-top:12px;font-weight:500;transition:all .15s" onmouseover="this.style.borderColor='var(--blue)';this.style.color='var(--blue)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--navy)'" onclick="go('book')">+ Book next service</button>
+      </div>
+    </div>
+    <div class="dash-acts">
+      <button class="da primary" onclick="go('book')">Book a service</button>
+      <button class="da" onclick="go('svcs')">All services</button>
+      <button class="da blue" onclick="go('plans')">Membership</button>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div id="page-svcs" class="page">
+  <div class="svcs-hdr"><div class="svcs-hdr-inner"><div class="section-eyebrow">Services</div><h2 class="svcs-hdr" style="font-size:32px;font-weight:700;color:var(--navy);background:none;padding:0;border:none;letter-spacing:-0.02em">Our services</h2><p style="font-size:14px;color:var(--mgray);font-weight:300;margin-top:6px">Tap any service for details and booking. Members save 8–18%.</p></div></div>
+  <div class="svcs-body"><div id="svcs-grid" style="max-width:860px;margin:0 auto"></div></div>
+</div>
+
+<!-- BOOKING -->
+<div id="page-book" class="page">
+  <div class="book-hdr"><div class="book-hdr-inner"><div class="section-eyebrow">Booking</div><h2 style="font-size:32px;font-weight:700;color:var(--navy);letter-spacing:-0.02em">Book a service</h2><p style="font-size:14px;color:var(--mgray);font-weight:300;margin-top:6px">Choose your date and time — we come to your door.</p></div></div>
+  <div class="book-body">
+    <div class="book-inner">
+      <div class="steps-row">
+        <div class="step-item done" id="bs1">1. Service</div>
+        <div class="step-item active" id="bs2">2. Date</div>
+        <div class="step-item" id="bs3">3. Time</div>
+        <div class="step-item" id="bs4">4. Confirm</div>
+      </div>
+      <div class="card">
+        <div class="ct" style="justify-content:space-between"><span>Selected service</span><span style="color:var(--blue);cursor:pointer;font-size:11px;font-weight:500;text-transform:none;letter-spacing:0" onclick="go('svcs')">Change →</span></div>
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <div><div style="font-size:17px;font-weight:700;color:var(--navy);letter-spacing:-0.01em" id="bk-n">Tune-Up</div><div style="font-size:12px;color:var(--mgray);margin-top:3px;font-weight:300">45–60 min · at your door</div></div>
+          <div style="font-size:24px;font-weight:700;color:var(--blue)" id="bk-p">$109</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ct">Select a date — May 2026</div>
+        <div class="cal-g" style="margin-bottom:10px">
+          <div class="cdow">Su</div><div class="cdow">Mo</div><div class="cdow">Tu</div><div class="cdow">We</div><div class="cdow">Th</div><div class="cdow">Fr</div><div class="cdow">Sa</div>
+          <div class="cday ot">27</div><div class="cday ot">28</div><div class="cday ot">29</div><div class="cday ot">30</div><div class="cday pt">1</div><div class="cday has" onclick="selD(this)">2</div><div class="cday has" onclick="selD(this)">3</div>
+          <div class="cday pt">4</div><div class="cday has" onclick="selD(this)">5</div><div class="cday has" onclick="selD(this)">6</div><div class="cday has" onclick="selD(this)">7</div><div class="cday has" onclick="selD(this)">8</div><div class="cday has" onclick="selD(this)">9</div><div class="cday has" onclick="selD(this)">10</div>
+          <div class="cday" onclick="selD(this)">11</div><div class="cday has" onclick="selD(this)">12</div><div class="cday has" onclick="selD(this)">13</div><div class="cday has" onclick="selD(this)">14</div><div class="cday has" onclick="selD(this)">15</div><div class="cday has" onclick="selD(this)">16</div><div class="cday" onclick="selD(this)">17</div>
+        </div>
+      </div>
+      <div class="card" id="tc" style="display:none">
+        <div class="ct">Select a time</div>
+        <div class="tg">
+          <div class="ts bk">8:00 am</div><div class="ts" onclick="selT(this)">8:30 am</div><div class="ts" onclick="selT(this)">9:00 am</div><div class="ts bk">9:30 am</div>
+          <div class="ts" onclick="selT(this)">10:00 am</div><div class="ts" onclick="selT(this)">10:30 am</div><div class="ts bk">11:00 am</div><div class="ts" onclick="selT(this)">11:30 am</div>
+          <div class="ts" onclick="selT(this)">1:00 pm</div><div class="ts" onclick="selT(this)">1:30 pm</div><div class="ts bk">2:00 pm</div><div class="ts" onclick="selT(this)">2:30 pm</div>
+        </div>
+      </div>
+      <div class="card" id="cc" style="display:none">
+        <div class="ct">Confirm booking</div>
+        <div class="conf-row"><span class="conf-label">Service</span><span id="cf-s">Tune-Up</span></div>
+        <div class="conf-row"><span class="conf-label">Date &amp; time</span><span id="cf-d">—</span></div>
+        <div class="conf-row"><span class="conf-label">Location</span><span>Your door · Paddington</span></div>
+        <div class="conf-row"><span class="conf-label">Mechanic</span><span>Van 1 · Mechanic 1</span></div>
+        <div class="conf-total"><span class="conf-total-label">Total</span><span class="conf-total-price" id="cf-p">$109</span></div>
+        <button class="conf-btn" onclick="confirmBk()">Confirm booking</button>
+      </div>
+      <div class="success-box" id="bks" style="display:none">
+        <div class="success-title">Booking confirmed ✓</div>
+        <div class="success-sub">We will send an SMS 30 minutes before arrival.</div>
+        <button class="conf-btn" style="max-width:220px;display:inline-block;padding:11px 24px;font-size:13px" onclick="go('dash')">View in my account</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MEMBERSHIP -->
+<div id="page-plans" class="page">
+  <div class="plans-hdr">
+    <div class="section-eyebrow" style="justify-content:center">Membership</div>
+    <h2>Dr. Bike membership</h2>
+    <p>Subscribe and save. Priority booking, member discounts and free services every month. 3-month minimum. Parts always extra.</p>
+    <div class="bill-tgl">
+      <button class="bt on" id="bt-m" onclick="setB('m')">Monthly</button>
+      <button class="bt" id="bt-a" onclick="setB('a')">Annual — save 20%</button>
+    </div>
+  </div>
+  <div class="plans-body">
+    <div class="plans3" id="plans3"><div class="pl">
+      
+      <div class="pl-name">Basic</div>
+      <div class="pl-who">For occasional riders</div>
+      <div class="pl-price">$57<span class="pl-mo">/mo</span></div>
+      <div class="pl-annual">Or $46/mo billed annually</div>
+      <span class="bikes-tag" style="background:#F3F4F6;color:#4B5563;border-color:#F3F4F6">1 bike · parts extra</span>
+      <div class="feat-sl">Priority</div><div class="pf"><div class="pfd" style="background:#1848C8"></div><span style="color:var(--navy)">Priority booking — before non-members</span></div><div class="pf"><div class="pfd" style="background:#1848C8"></div><span style="color:var(--navy)">SMS reminder when service is due</span></div><div class="pf no"><div class="pfd" style="background:#E5E7EB"></div><span style="color:#9CA3AF">Same-day booking guarantee</span></div><div class="feat-sl">Discounts</div><div class="pf"><div class="pfd" style="background:#1848C8"></div><span style="color:var(--navy)">8% off all labour every visit</span></div><div class="pf"><div class="pfd" style="background:#1848C8"></div><span style="color:var(--navy)">$20 call-out fee waived</span></div><div class="feat-sl">Free services</div><div class="pf"><div class="pfd" style="background:#1848C8"></div><span style="color:var(--navy)">1 × Tune-Up/year (value $109)</span></div><div class="pf"><div class="pfd" style="background:#1848C8"></div><span style="color:var(--navy)">Tyre pressure check monthly</span></div><div class="pf no"><div class="pfd" style="background:#E5E7EB"></div><span style="color:#9CA3AF">Brake check every 3 months</span></div>
+      <div class="pl-btn-wrap">
+        <button class="plb" style="background:#0D1F3C;color:#fff;box-shadow:0 4px 12px rgba(0,0,0,0.15)" onclick="go('login')">Get started — Basic</button>
+        <div class="plb-note">3-month minimum · cancel anytime after</div>
+      </div>
+    </div><div class="pl pop">
+      <div class="pop-tag2">Most popular</div>
+      <div class="pl-name">Standard</div>
+      <div class="pl-who">Best value · most popular</div>
+      <div class="pl-price">$97<span class="pl-mo">/mo</span></div>
+      <div class="pl-annual">Or $78/mo billed annually</div>
+      <span class="bikes-tag" style="background:#EEF3FC;color:#1848C8;border-color:#EEF3FC">1 bike · parts extra</span>
+      <div class="feat-sl">Priority</div><div class="pf"><div class="pfd" style="background:#1848C8"></div><span style="color:var(--navy)">First-access priority — top of the queue</span></div><div class="pf"><div class="pfd" style="background:#1848C8"></div><span style="color:var(--navy)">2-hour guaranteed arrival window</span></div><div class="pf"><div class="pfd" style="background:#1848C8"></div><span style="color:var(--navy)">SMS + call 30 min before arrival</span></div><div class="feat-sl">Discounts</div><div class="pf"><div class="pfd" style="background:#1848C8"></div><span style="color:var(--navy)">12% off all labour every visit</span></div><div class="pf"><div class="pfd" style="background:#1848C8"></div><span style="color:var(--navy)">$20 call-out fee waived</span></div><div class="feat-sl">Free services</div><div class="pf"><div class="pfd" style="background:#1848C8"></div><span style="color:var(--navy)">2 × Tune-Ups/year (value $218)</span></div><div class="pf"><div class="pfd" style="background:#1848C8"></div><span style="color:var(--navy)">Brake check every 3 months</span></div><div class="pf"><div class="pfd" style="background:#1848C8"></div><span style="color:var(--navy)">Tyre pressure check monthly</span></div>
+      <div class="pl-btn-wrap">
+        <button class="plb" style="background:#1848C8;color:#fff;box-shadow:0 4px 12px rgba(0,0,0,0.15)" onclick="go('login')">Get started — Standard</button>
+        <div class="plb-note">3-month minimum · cancel anytime after</div>
+      </div>
+    </div><div class="pl">
+      
+      <div class="pl-name">VIP</div>
+      <div class="pl-who">Serious riders &amp; families</div>
+      <div class="pl-price vip">$147<span class="pl-mo">/mo</span></div>
+      <div class="pl-annual">Or $118/mo billed annually</div>
+      <span class="bikes-tag" style="background:#FEF3C7;color:#B45309;border-color:#FEF3C7">Up to 3 bikes · parts extra</span>
+      <div class="feat-sl">Priority</div><div class="pf"><div class="pfd" style="background:#B45309"></div><span style="color:var(--navy)">Absolute priority in the schedule</span></div><div class="pf"><div class="pfd" style="background:#B45309"></div><span style="color:var(--navy)">Same-day booking on request</span></div><div class="pf"><div class="pfd" style="background:#B45309"></div><span style="color:var(--navy)">1-hour arrival window guarantee</span></div><div class="feat-sl">Discounts</div><div class="pf"><div class="pfd" style="background:#B45309"></div><span style="color:var(--navy)">18% off all labour every visit</span></div><div class="pf"><div class="pfd" style="background:#B45309"></div><span style="color:var(--navy)">$20 call-out fee waived</span></div><div class="pf"><div class="pfd" style="background:#B45309"></div><span style="color:var(--navy)">Direct mechanic WhatsApp access</span></div><div class="feat-sl">Free services</div><div class="pf"><div class="pfd" style="background:#B45309"></div><span style="color:var(--navy)">3 × Tune-Ups/year (value $327)</span></div><div class="pf"><div class="pfd" style="background:#B45309"></div><span style="color:var(--navy)">Brake &amp; gear check every 2 months</span></div><div class="pf"><div class="pfd" style="background:#B45309"></div><span style="color:var(--navy)">Dedicated mechanic — same person always</span></div>
+      <div class="pl-btn-wrap">
+        <button class="plb" style="background:#92400E;color:#fff;box-shadow:0 4px 12px rgba(0,0,0,0.15)" onclick="go('login')">Get started — VIP</button>
+        <div class="plb-note">3-month minimum · cancel anytime after</div>
+      </div>
+    </div></div>
+    <div class="pitch-wrap">
+      <div class="pitch-intro-box"><p>Your bike is your transport, your 
+exercise, or something you simply love. Every time something goes wrong —
+ a brake that won't bite, a gear that skips — you have to find a 
+workshop, load up the car and pay full price.<br><br>With Dr. Bike, <strong>we come to you</strong>. A membership makes every visit cheaper, faster and easier.</p></div>
+      <div id="pitch-cards"><div class="pc" onclick="togP('b')">
+      <div class="pc-head">
+        <div class="pc-badge" style="background:#F3F4F6;color:#374151">$57/mo</div>
+        <div><div class="pc-title">Basic — is it worth it for me?</div><div class="pc-sub">1 bike · 8% off · 1 free Tune-Up/year</div></div>
+        <svg class="pc-arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
+      <div class="pc-body">For less than two coffees a week, you have a 
+professional mechanic available all year. Every booking waives the $20 
+call-out fee and comes out <span class="hl">8% cheaper</span>.<br><br>Once a year, we do a full <span class="hl">Tune-Up at no charge</span> — worth $109. If you ride even occasionally, this plan pays for itself.<br><br><strong style="font-weight:600;color:var(--navy)">Best for:</strong> the occasional rider who wants their bike looked after without thinking about it.</div>
+    </div><div class="pc" onclick="togP('s')">
+      <div class="pc-head">
+        <div class="pc-badge" style="background:#EEF3FC;color:#1848C8">$97/mo</div>
+        <div><div class="pc-title">Standard — is it worth it for me?</div><div class="pc-sub">1 bike · 12% off · 2 free Tune-Ups/year</div></div>
+        <svg class="pc-arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
+      <div class="pc-body">This is the plan most clients choose — and the maths is clear. <span class="hl">Two Tune-Ups per year</span> are included, worth $218. That alone covers more than two months of subscription.<br><br>Every service comes out <span class="hl">12% cheaper</span> and your mechanic arrives within a guaranteed <span class="hl">2-hour window</span>. Members save an average of <span class="hl">$320 per year</span>.<br><br><strong style="font-weight:600;color:var(--navy)">Best for:</strong> the regular rider who wants real savings and a service that respects their time.</div>
+    </div><div class="pc" onclick="togP('v')">
+      <div class="pc-head">
+        <div class="pc-badge" style="background:#FEF3C7;color:#B45309">$147/mo</div>
+        <div><div class="pc-title">VIP — is it worth it for me?</div><div class="pc-sub">Up to 3 bikes · 18% off · 3 free Tune-Ups/year</div></div>
+        <svg class="pc-arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
+      <div class="pc-body">One subscription covers <span class="hl">up to 3 bikes</span>. You get the <span class="hl">same mechanic every single visit</span> — someone who already knows your bikes, how they're set up and what they need.<br><br>Three free Tune-Ups per year ($327 value), <span class="hl">18% off every service</span>, brake and gear checks every two months, and absolute priority in the schedule.<br><br><strong style="font-weight:600;color:var(--navy)">Best for:</strong> the serious cyclist or household with multiple bikes who wants the very best.</div>
+    </div></div>
+    </div>
+    <div class="val-box">
+      <div class="vt">What you actually save per year</div>
+      <div class="vr"><span class="vn">Basic</span><span class="vp" id="vp-b">$684/yr</span><span class="vg">1 free Tune-Up + call-out waived + 8% off all visits</span><span class="vs">~$160 saved</span></div>
+      <div class="vr"><span class="vn" style="color:var(--blue)">Standard</span><span class="vp" id="vp-s">$1,164/yr</span><span class="vg">2 free Tune-Ups + call-out waived + 12% off all visits</span><span class="vs">~$320 saved</span></div>
+      <div class="vr"><span class="vn" style="color:#B45309">VIP</span><span class="vp" id="vp-v">$1,764/yr</span><span class="vg">3 free Tune-Ups + 18% off everything + up to 3 bikes</span><span class="vs">~$600 saved</span></div>
+      <div class="vnote">Parts are always charged at cost — no markup 
+for members. Membership covers labour and call-out only. 3-month minimum
+ commitment. Cancel anytime after that.</div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div id="pay-modal" class="modal-overlay">
+  <div class="modal-box">
+    <div class="modal-title">Book &amp; pay</div>
+    <div class="modal-sub">Member discount applied automatically.</div>
+    <div class="conf-row"><span class="conf-label">Service</span><span id="pm-s">Tune-Up</span></div>
+    <div class="conf-row"><span class="conf-label">Call-out fee</span><span>Waived (member)</span></div>
+    <div class="conf-row"><span class="conf-label">Member discount</span><span style="color:var(--blue);font-weight:600">−12%</span></div>
+    <div class="conf-total" style="margin-top:10px;padding-top:10px"><span class="conf-total-label">Total due</span><span class="conf-total-price" id="pm-tot">$96</span></div>
+    <div style="font-size:11px;font-weight:600;color:var(--mgray);margin:12px 0 6px;letter-spacing:0.06em;text-transform:uppercase">Payment method</div>
+    <div class="pm-g"><button class="pmb on" onclick="selPM(this)">Credit card</button><button class="pmb" onclick="selPM(this)">Apple Pay</button><button class="pmb" onclick="selPM(this)">Transfer</button></div>
+    <div class="modal-btns"><button class="mb-cancel" onclick="closeModal()">Cancel</button><button class="mb-pay" onclick="doPay()">Pay now</button></div>
+    <div class="pay-succ" id="pay-succ">
+      <div style="font-size:15px;font-weight:700;color:#065F46;margin-bottom:4px">Payment successful ✓</div>
+      <div style="font-size:12px;color:#059669;margin-bottom:10px;font-weight:300">Receipt sent to sarah.m@email.com</div>
+      <button class="conf-btn" style="max-width:180px;display:inline-block;padding:9px;font-size:12px" onclick="closeModal();go('dash')">Go to my account</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const NM={home:'n-home',svcs:'n-svcs',plans:'n-plans',book:'n-book',dash:'n-dash'};
+function go(p){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById('page-'+p).classList.add('active');Object.values(NM).forEach(id=>{const e=document.getElementById(id);if(e)e.classList.remove('on')});if(NM[p])document.getElementById(NM[p]).classList.add('on');window.scrollTo(0,0);document.getElementById('nav-links').classList.remove('open');if(p==='svcs')rSvcs();if(p==='plans')rPlans();}
+function toggleMenu(){document.getElementById('nav-links').classList.toggle('open');}
+
+const CATS=[
+  {cat:"Scheduled services",svcs:[
+    {n:"Tune-Up",p:109,d:"45–60 min",desc:"Safety check, gear & brake adjustment, tyre pressure and drivetrain lube. Our most popular service. $20 call-out included."},
+    {n:"Standard Service",p:149,d:"60–90 min",desc:"Full tune-up plus drivetrain clean, minor wheel true, frame wipe and detailed inspection report."},
+    {n:"Standard+ Service",p:199,d:"90–120 min",desc:"Everything in Standard plus full drivetrain degreasing, new cables, wheel truing and headset/bottom bracket check."},
+    {n:"Ultimate Overhaul",p:369,d:"3–4 hrs",desc:"Complete strip-and-rebuild. Every component inspected, adjusted or replaced. New cables, brake bleed, headset service."},
+  ]},
+  {cat:"General & assembly",svcs:[
+    {n:"Accessory / Part Install",p:25,d:"15–20 min",desc:"Professional fitting of accessories — racks, lights, computers, kickstands, pedals and more."},
+    {n:"Baby Seat / Rack Install",p:25,d:"20 min",desc:"Safe installation of child seats or cargo racks. Torque-checked to manufacturer spec."},
+    {n:"Bike Chain, Degrease & Re-lube",p:25,d:"20 min",desc:"Full drivetrain clean: chain, cassette and chainrings degreased and re-lubed."},
+    {n:"Bike Build — New Bike",p:75,d:"60–75 min",desc:"Assembly of a new boxed bike. All bolts torqued, gears and brakes tuned, ready to ride."},
+    {n:"Unboxing / Frame Strip",p:50,d:"30 min",desc:"Careful unboxing, parts inventory check and initial setup before full build."},
+  ]},
+  {cat:"Electronic & e-bike",svcs:[
+    {n:"E-bike Diagnostic",p:60,d:"30–45 min",desc:"Full system scan, firmware check, error code review. Bosch, Shimano Steps, Fazua, Brose covered."},
+    {n:"Electric Brake Sync Install",p:45,d:"30 min",desc:"Installation and calibration of electronic brake synchronisation on e-bike systems."},
+    {n:"Firmware Update",p:50,d:"20–30 min",desc:"Software update for e-bike motor and display systems."},
+    {n:"Electric Drive Unit Tyre Change",p:45,d:"30–40 min",desc:"Tyre removal and refitting on e-bike wheels with motor integration."},
+  ]},
+  {cat:"Cockpit & levers",svcs:[
+    {n:"Bar Tape Install",p:40,d:"25 min",desc:"Professional bar tape wrap on drop bars. Clean finish, secure ends, even tension."},
+    {n:"Handlebar Install",p:60,d:"30 min",desc:"Remove and refit handlebars including brake and gear lever repositioning."},
+    {n:"Shift Lever Install",p:40,d:"25 min",desc:"Install and adjust shifter levers on flat or drop bars."},
+    {n:"Brake Lever Install",p:35,d:"20 min",desc:"Fit and align brake levers. Reach and angle adjusted to your preference."},
+    {n:"Integrated Shifter / Brake Lever",p:75,d:"45 min",desc:"Installation of integrated road brake/shift levers with full cable routing and adjustment."},
+  ]},
+  {cat:"Fork, headset & steerer",svcs:[
+    {n:"External Steerer Fork Install",p:75,d:"45–60 min",desc:"Install and align new fork with external steerer. Includes headset bearing setting."},
+    {n:"Internal Steerer Fork Install",p:95,d:"60–75 min",desc:"Install fork with internal steerer routing. Precision bearing preload and stem torque."},
+    {n:"Suspension Adjustment",p:25,d:"20 min",desc:"Set sag, rebound and compression on suspension fork or rear shock."},
+    {n:"Headset Install / Adjust / Re-Grease",p:65,d:"40 min",desc:"Headset bearing service — clean, re-grease, adjust preload and eliminate play."},
+  ]},
+  {cat:"Suspension",svcs:[
+    {n:"Lower Leg Service",p:130,d:"75–90 min",desc:"Full lower leg strip, clean, new seals and oil refresh. Restores smooth, controlled damping."},
+    {n:"Air Can Service",p:99,d:"60 min",desc:"Air spring disassembly, new o-rings and correct volume for your riding weight."},
+  ]},
+  {cat:"Brakes",svcs:[
+    {n:"Brake Shoe Install / Alignment",p:20,d:"20 min",desc:"Fit and toe-in rim brake pads for clean, quiet and progressive braking."},
+    {n:"Brake Pad Install",p:35,d:"20 min",desc:"Disc brake pad replacement per end. Best compound advised for your riding."},
+    {n:"Brake Caliper Install",p:40,d:"25 min",desc:"Caliper fitting and alignment to rotor — eliminates rubbing."},
+    {n:"Brake Bleed",p:55,d:"30 min/end",desc:"Full hydraulic bleed to restore firm, consistent lever feel. Both ends $105."},
+    {n:"Hydro Brake Install",p:65,d:"40 min",desc:"Full hydraulic brake system installation including hose routing, bleed and alignment."},
+  ]},
+  {cat:"Gears & cables",svcs:[
+    {n:"Gear Adjustment",p:35,d:"30 min",desc:"Derailleur indexing, cable tension and limit screw adjustment."},
+    {n:"Derailleur Install",p:55,d:"35 min",desc:"Front or rear derailleur installation and full shifting calibration."},
+    {n:"External Cable Install",p:45,d:"30 min",desc:"Replace outer and inner cables for crisp brake feel and precise gear changes."},
+    {n:"Internal Cable Install",p:55,d:"40 min",desc:"Route and replace internally cabled brake or gear lines."},
+  ]},
+  {cat:"Drivetrain",svcs:[
+    {n:"Cassette Install",p:30,d:"20 min",desc:"Cassette removal and refitting with correct torque."},
+    {n:"Chain Install",p:30,d:"20 min",desc:"Fit and size a new chain. Master link fitted and shifting verified."},
+    {n:"Chainring Install",p:45,d:"25 min",desc:"Chainring removal and installation with correct bolt torque."},
+    {n:"Hollowtech Crank Install",p:65,d:"40 min",desc:"Shimano Hollowtech II or compatible crank installation."},
+    {n:"Bottom Bracket Install",p:45,d:"30 min",desc:"BB removal, thread clean and new unit installation."},
+  ]},
+  {cat:"Wheels & tyres",svcs:[
+    {n:"Tyre / Tube Install",p:30,d:"20 min",desc:"Tyre and tube replacement per wheel. Pressure set to recommended range."},
+    {n:"Tubeless Tyre Install",p:55,d:"35 min",desc:"Tubeless conversion — tape, valve, sealant and inflation included per wheel."},
+    {n:"Tubeless Tyre Reseal",p:30,d:"20 min",desc:"Sealant refresh and bead reseat for a tubeless tyre that has lost pressure."},
+    {n:"Wheel Truing — Minor",p:45,d:"25 min",desc:"Spoke tension adjustment for small lateral or radial deviations."},
+    {n:"Wheel Truing — Major",p:60,d:"40 min",desc:"Significant spoke tension correction for badly buckled wheels."},
+    {n:"Spoke Replacement",p:35,d:"25 min",desc:"Replace one or more broken spokes and true the wheel to spec."},
+    {n:"Hub Adjustment",p:35,d:"25 min",desc:"Cup-and-cone hub adjustment. Includes axle re-grease."},
+    {n:"Internal Gear Hub Install",p:95,d:"60 min",desc:"Installation of internal gear hubs (Nexus, Alfine, Rohloff)."},
+  ]},
+];
+const SVCS=CATS.flatMap(c=>c.svcs.map(s=>({...s,cat:c.cat})));
+
+let oSvc=null,svcFilter='all';
+function rSvcs(){
+  const cats=svcFilter==='all'?CATS:CATS.filter(c=>c.cat===svcFilter);
+  const pills=['all',...CATS.map(c=>c.cat)];
+  const filterHtml=`<div style="display:flex;gap:8px;flex-wrap:wrap;padding:0 0 16px">${pills.map(p=>`<button onclick="svcFilter='${p}';rSvcs()" style="padding:6px 14px;border:1.5px solid ${svcFilter===p?'var(--blue)':'var(--border)'};border-radius:20px;background:${svcFilter===p?'var(--blue)':'var(--white)'};color:${svcFilter===p?'#fff':'var(--mgray)'};font-family:var(--sans);font-size:12px;cursor:pointer;font-weight:${svcFilter===p?'600':'400'};white-space:nowrap;transition:all .15s">${p==='all'?'All services':p}</button>`).join('')}</div>`;
+  const gridHtml=cats.map(c=>`<div style="margin-bottom:24px"><div style="font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:0.1em;padding:0 0 10px;display:flex;align-items:center;gap:8px"><span style="width:14px;height:2px;background:var(--blue);border-radius:2px;display:inline-block"></span>${c.cat}</div><div class="svcs-grid">${c.svcs.map(s=>{const i=SVCS.indexOf(s);return`<div class="svc-card${oSvc===i?' open':''}" onclick="togSvc(${i})"><div class="svc-name">${s.n}</div><div class="svc-dur">${s.d}</div><div class="svc-pr"><span class="svc-price">$${s.p}</span><svg style="transition:transform .2s;transform:rotate(${oSvc===i?180:0}deg)" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--mgray)" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>${oSvc===i?`<div class="svc-desc">${s.desc}</div><div class="svc-acts"><button class="sa book" onclick="event.stopPropagation();go('book');setSvc('${s.n.replace(/'/g,"\\'")}',${s.p})">Book now</button><button class="sa pay" onclick="event.stopPropagation();openPay('${s.n.replace(/'/g,"\\'")}',${s.p})">Book & pay</button></div>`:''}</div>`;}).join('')}</div></div>`).join('');
+  document.getElementById('svcs-grid').innerHTML=filterHtml+gridHtml;
+}
+function togSvc(i){oSvc=oSvc===i?null:i;rSvcs();}
+function setSvc(n,p){document.getElementById('bk-n').textContent=n;document.getElementById('bk-p').textContent='$'+p;document.getElementById('cf-s').textContent=n;document.getElementById('cf-p').textContent='$'+p;}
+
+let sD=null,sT=null;
+function selD(el){if(sD)sD.classList.remove('sel');el.classList.add('sel');sD=el;document.getElementById('tc').style.display='block';document.getElementById('bs3').classList.add('active');}
+function selT(el){if(sT)sT.classList.remove('sel');el.classList.add('sel');sT=el;document.getElementById('cf-d').textContent=(sD?sD.textContent:'—')+' May · '+el.textContent;document.getElementById('cc').style.display='block';document.getElementById('bs4').classList.add('active');}
+function confirmBk(){document.getElementById('cc').style.display='none';document.getElementById('bks').style.display='block';}
+
+let billing='m';
+const P3=[
+  {id:'b',n:'Basic',w:'For occasional riders',mo:57,pop:false,bikes:'1 bike',btc:'#1848C8',bb:'#0D1F3C',
+   pitch:"For less than two coffees a week, you have a professional mechanic available all year. Every booking waives the $20 call-out fee and comes out <span class='hl'>8% cheaper</span>.<br><br>Once a year, we do a full <span class='hl'>Tune-Up at no charge</span> — worth $109. If you ride even occasionally, this plan pays for itself.<br><br><strong style='font-weight:600;color:var(--navy)'>Best for:</strong> the occasional rider who wants their bike looked after without thinking about it.",
+   secs:[{l:'Priority',c:'#1848C8',f:[{t:'Priority booking — before non-members',y:true},{t:'SMS reminder when service is due',y:true},{t:'Same-day booking guarantee',y:false}]},{l:'Discounts',c:'#1848C8',f:[{t:'8% off all labour every visit',y:true},{t:'$20 call-out fee waived',y:true}]},{l:'Free services',c:'#1848C8',f:[{t:'1 × Tune-Up/year (value $109)',y:true},{t:'Tyre pressure check monthly',y:true},{t:'Brake check every 3 months',y:false}]}]},
+  {id:'s',n:'Standard',w:'Best value · most popular',mo:97,pop:true,bikes:'1 bike',btc:'#1848C8',bb:'#1848C8',
+   pitch:"This is the plan most clients choose — and the maths is clear. <span class='hl'>Two Tune-Ups per year</span> are included, worth $218. That alone covers more than two months of subscription.<br><br>Every service comes out <span class='hl'>12% cheaper</span> and your mechanic arrives within a guaranteed <span class='hl'>2-hour window</span>. Members save an average of <span class='hl'>$320 per year</span>.<br><br><strong style='font-weight:600;color:var(--navy)'>Best for:</strong> the regular rider who wants real savings and a service that respects their time.",
+   secs:[{l:'Priority',c:'#1848C8',f:[{t:'First-access priority — top of the queue',y:true},{t:'2-hour guaranteed arrival window',y:true},{t:'SMS + call 30 min before arrival',y:true}]},{l:'Discounts',c:'#1848C8',f:[{t:'12% off all labour every visit',y:true},{t:'$20 call-out fee waived',y:true}]},{l:'Free services',c:'#1848C8',f:[{t:'2 × Tune-Ups/year (value $218)',y:true},{t:'Brake check every 3 months',y:true},{t:'Tyre pressure check monthly',y:true}]}]},
+  {id:'v',n:'VIP',w:'Serious riders & families',mo:147,pop:false,bikes:'Up to 3 bikes',btc:'#B45309',bb:'#92400E',
+   pitch:"One subscription covers <span class='hl'>up to 3 bikes</span>. You get the <span class='hl'>same mechanic every single visit</span> — someone who already knows your bikes, how they're set up and what they need.<br><br>Three free Tune-Ups per year ($327 value), <span class='hl'>18% off every service</span>, brake and gear checks every two months, and absolute priority in the schedule.<br><br><strong style='font-weight:600;color:var(--navy)'>Best for:</strong> the serious cyclist or household with multiple bikes who wants the very best.",
+   secs:[{l:'Priority',c:'#B45309',f:[{t:'Absolute priority in the schedule',y:true},{t:'Same-day booking on request',y:true},{t:'1-hour arrival window guarantee',y:true}]},{l:'Discounts',c:'#B45309',f:[{t:'18% off all labour every visit',y:true},{t:'$20 call-out fee waived',y:true},{t:'Direct mechanic WhatsApp access',y:true}]},{l:'Free services',c:'#B45309',f:[{t:'3 × Tune-Ups/year (value $327)',y:true},{t:'Brake & gear check every 2 months',y:true},{t:'Dedicated mechanic — same person always',y:true}]}]},
+];
+let oP=null;
+function setB(b){billing=b;document.getElementById('bt-m').classList.toggle('on',b==='m');document.getElementById('bt-a').classList.toggle('on',b==='a');rPlans();uV();}
+function rPlans(){
+  document.getElementById('plans3').innerHTML=P3.map(p=>{
+    const mo=billing==='a'?Math.round(p.mo*0.8):p.mo;
+    const annLine=billing==='a'?`Billed $${mo*12}/year — 20% saved`:`Or $${Math.round(p.mo*0.8)}/mo billed annually`;
+    const priceCol=p.id==='v'?'#B45309':'var(--navy)';
+    const feats=p.secs.map(s=>`<div class="feat-sl">${s.l}</div>${s.f.map(f=>`<div class="pf${f.y?'':' no'}"><div class="pfd" style="background:${f.y?s.c:'#E5E7EB'}"></div><span style="color:${f.y?'var(--navy)':'#9CA3AF'}">${f.t}</span></div>`).join('')}`).join('');
+    const bikeBg=p.id==='v'?'#FEF3C7':p.id==='s'?'#EEF3FC':'#F3F4F6';
+    const bikeFc=p.id==='v'?'#B45309':p.id==='s'?'#1848C8':'#4B5563';
+    return`<div class="pl${p.pop?' pop':''}">
+      ${p.pop?'<div class="pop-tag2">Most popular</div>':''}
+      <div class="pl-name">${p.n}</div>
+      <div class="pl-who">${p.w}</div>
+      <div class="pl-price${p.id==='v'?' vip':''}">$${mo}<span class="pl-mo">/mo</span></div>
+      <div class="pl-annual">${annLine}</div>
+      <span class="bikes-tag" style="background:${bikeBg};color:${bikeFc};border-color:${bikeBg}">${p.bikes} · parts extra</span>
+      ${feats}
+      <div class="pl-btn-wrap">
+        <button class="plb" style="background:${p.bb};color:#fff;box-shadow:0 4px 12px rgba(0,0,0,0.15)" onclick="go('login')">Get started — ${p.n}</button>
+        <div class="plb-note">3-month minimum · cancel anytime after</div>
+      </div>
+    </div>`;
+  }).join('');
+  document.getElementById('pitch-cards').innerHTML=P3.map(p=>{
+    const mo=billing==='a'?Math.round(p.mo*0.8):p.mo;
+    const isOpen=oP===p.id;
+    const bg=p.id==='v'?'#FEF3C7':p.id==='s'?'#EEF3FC':'#F3F4F6';
+    const fc=p.id==='v'?'#B45309':p.id==='s'?'#1848C8':'#374151';
+    return`<div class="pc${isOpen?' open':''}" onclick="togP('${p.id}')">
+      <div class="pc-head">
+        <div class="pc-badge" style="background:${bg};color:${fc}">$${mo}/mo</div>
+        <div><div class="pc-title">${p.n} — is it worth it for me?</div><div class="pc-sub">${p.bikes} · ${p.id==='b'?'8%':p.id==='s'?'12%':'18%'} off · ${p.id==='b'?'1':p.id==='s'?'2':'3'} free Tune-Up${p.id==='b'?'':'s'}/year</div></div>
+        <svg class="pc-arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pc-body">${p.pitch}</div>
+    </div>`;
+  }).join('');
+}
+function togP(id){oP=oP===id?null:id;rPlans();}
+function uV(){const f=billing==='a'?0.8:1;document.getElementById('vp-b').textContent='$'+Math.round(57*f*12)+'/yr';document.getElementById('vp-s').textContent='$'+Math.round(97*f*12)+'/yr';document.getElementById('vp-v').textContent='$'+Math.round(147*f*12)+'/yr';}
+function openPay(n,p){document.getElementById('pm-s').textContent=n;document.getElementById('pm-tot').textContent='$'+Math.round(p*0.88);document.getElementById('pay-modal').classList.add('show');}
+function closeModal(){document.getElementById('pay-modal').classList.remove('show');document.getElementById('pay-succ').style.display='none';}
+function selPM(el){document.querySelectorAll('.pmb').forEach(b=>b.classList.remove('on'));el.classList.add('on');}
+function doPay(){document.getElementById('pay-succ').style.display='block';}
+rPlans();
+</script>
+
+
+<img id="BtnTool" src="index_files/icon.png" style="position: absolute; top: 215px; left: 201px; z-index: 9999; cursor: pointer; display: none;" height="25" width="25"><img id="LoadingGif" src="moz-extension://b0005110-3221-4723-8d2a-d91733895c16/icons/loading.gif" style="position: absolute; top: 215px; z-index: 9999; cursor: pointer; display: none; left: 201px;" height="70" width="70"></body></html>
